@@ -16,6 +16,9 @@ public class Basic_Enemy : MonoBehaviour
 
     public Player_Movement playerScript;
 
+    [SerializeField] Transform playerCheck;
+    [SerializeField] LayerMask playerMask;
+
     void Start()
     {
         //When spawned, enemies will find the gameobject called wayPoint.
@@ -24,19 +27,28 @@ public class Basic_Enemy : MonoBehaviour
 
     void Update()
     {
-        if (oldPosition < transform.position.x) //Sprite rotator
+        //Only moves when it sees the player
+        if (Physics.CheckSphere(playerCheck.position, 7f, playerMask) == true)
         {
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
-        }
-        else
-        {
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
-        }
-        oldPosition = transform.position.x;
+            //To make them stunned during IFrames
+            if (injured == false)
+            {
+                if (oldPosition < transform.position.x) //Sprite rotator
+                {
+                    transform.localRotation = Quaternion.Euler(0, 180, 0);
+                }
+                else
+                {
+                    transform.localRotation = Quaternion.Euler(0, 0, 0);
+                }
+                oldPosition = transform.position.x;
 
-        wayPointPos = new Vector3(wayPoint.transform.position.x, wayPoint.transform.position.y, wayPoint.transform.position.z);
-        //Here the enemies will follow the waypoint.
-       transform.position = Vector3.MoveTowards(transform.position, wayPointPos, enemySpeed * Time.deltaTime);
+                wayPointPos = new Vector3(wayPoint.transform.position.x, wayPoint.transform.position.y, wayPoint.transform.position.z);
+                //Here the enemies will follow the waypoint.
+                transform.position = Vector3.MoveTowards(transform.position, wayPointPos, enemySpeed * Time.deltaTime);
+
+            }
+        }
 
         if (injured == true)
         {

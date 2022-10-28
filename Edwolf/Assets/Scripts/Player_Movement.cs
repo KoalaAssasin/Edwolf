@@ -65,8 +65,8 @@ public class Player_Movement : MonoBehaviour
             //Debug.Log("punch inactive");
             punchActive = false;
         }
-        //Punch cooldown is done half a second after punch is active (times to be edited)
-        if (punchActiveTime < -0.5f)
+        //Punch cooldown is done 0.3 seconds after punch is active (times to be edited)
+        if (punchActiveTime < -0.3f)
         {
             punchCooldown = false;
             punchActiveTime = 0.5f;
