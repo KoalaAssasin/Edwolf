@@ -1315,6 +1315,7 @@ MonoBehaviour:
     m_Bits: 0
   PunchBox: {fileID: 0}
   punchActive: 0
+  health: 3
 --- !u!1 &1022895120
 GameObject:
   m_ObjectHideFlags: 0
@@ -1664,6 +1665,7 @@ MonoBehaviour:
     m_Bits: 64
   PunchBox: {fileID: 30242704}
   punchActive: 0
+  health: 3
 --- !u!114 &1048486929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3536,16 +3538,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8079482324580714751, guid: af56b9dd9892ac541bb210204b7f5c91, type: 3}
-      propertyPath: playerCheck
-      value: 
-      objectReference: {fileID: 310903932}
-    - target: {fileID: 8079482324580714751, guid: af56b9dd9892ac541bb210204b7f5c91, type: 3}
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 1048486928}
-    - target: {fileID: 8079482324580714751, guid: af56b9dd9892ac541bb210204b7f5c91, type: 3}
-      propertyPath: playerMask.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af56b9dd9892ac541bb210204b7f5c91, type: 3}

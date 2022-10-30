@@ -17,7 +17,11 @@ public class Player_Movement : MonoBehaviour
     public bool punchActive = false;
     bool punchCooldown = false;
     float punchActiveTime = 0.5f;
+    public int health = 3;
     string direction = "right";
+
+    float IFrames = 0.3f;
+    bool injured = false;
 
     private void Start()
     {
@@ -73,6 +77,31 @@ public class Player_Movement : MonoBehaviour
             //Debug.Log("punch cooldowned");
         }
 
+        if (injured == true)
+        {
+            IFrames -= Time.deltaTime;
+        }
+        if (IFrames <= 0)
+        {
+            injured = false;
+            IFrames = 0.3f;
+        }
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy" && injured == false)
+        {
+            health -= 1;
+            injured = true;
+
+            if(health < 1)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+      
     }
 
     bool GroundTouch()
