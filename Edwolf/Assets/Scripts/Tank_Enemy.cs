@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Basic_Enemy : MonoBehaviour
+public class Tank_Enemy : MonoBehaviour
 {
     private GameObject wayPoint;
     private GameObject bullet;
     private Vector3 wayPointPos;
     //This will be the enemy's speed. Adjust as necessary.
-    public float enemySpeed = 1.8f;
-    private int health = 3;
+    public float enemySpeed = 1.1f;
+    private int health = 8;
     float oldPosition;
     float IFrames = 0.5f;
     bool injured = false;
@@ -57,7 +57,7 @@ public class Basic_Enemy : MonoBehaviour
         if (IFrames <= 0)
         {
             injured = false;
-            IFrames = 0.5f;
+            IFrames = 0.2f;
         }
     }
 

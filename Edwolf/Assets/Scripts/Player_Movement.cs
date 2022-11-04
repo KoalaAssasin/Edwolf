@@ -16,7 +16,7 @@ public class Player_Movement : MonoBehaviour
 
     public bool punchActive = false;
     bool punchCooldown = false;
-    float punchActiveTime = 0.5f;
+    float punchActiveTime = 0.2f;
     public int health = 3;
     string direction = "right";
 
@@ -69,11 +69,11 @@ public class Player_Movement : MonoBehaviour
             //Debug.Log("punch inactive");
             punchActive = false;
         }
-        //Punch cooldown is done 0.3 seconds after punch is active (times to be edited)
-        if (punchActiveTime < -0.3f)
+        //Punch cooldown is done 0.2 seconds after punch is active (times to be edited)
+        if (punchActiveTime < -0.2f)
         {
             punchCooldown = false;
-            punchActiveTime = 0.5f;
+            punchActiveTime = 0.2f;
             //Debug.Log("punch cooldowned");
         }
 
