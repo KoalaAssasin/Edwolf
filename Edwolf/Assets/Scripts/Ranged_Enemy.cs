@@ -5,9 +5,12 @@ using UnityEngine;
 public class Ranged_Enemy : MonoBehaviour
 {
     private GameObject wayPoint;
-    private GameObject bullet;
+    public GameObject bullet;
+    GameObject prefab;
+
     //This will be the enemy's speed. Adjust as necessary. It's firing speed in this case.
-    public float enemySpeed = 6.0f;
+    public float enemySpeed;
+    public float enemySpeedReset = 6.0f;
     private int health = 2;
     float IFrames = 0.5f;
     bool injured = false;
@@ -21,6 +24,8 @@ public class Ranged_Enemy : MonoBehaviour
     {
         //When spawned, enemies will find the gameobject called wayPoint.
         wayPoint = GameObject.Find("Waypoint");
+
+        enemySpeed = enemySpeedReset;
     }
 
     void Update()
@@ -40,7 +45,21 @@ public class Ranged_Enemy : MonoBehaviour
                     transform.localRotation = Quaternion.Euler(0, 0, 0);
                 }
 
+                if (enemySpeed == enemySpeedReset)
+                {
+                    prefab = Instantiate(bullet, transform.position, transform.rotation);
+                    prefab.transform.position = new Vector3(prefab.transform.position.x, prefab.transform.position.y + 0.4f, prefab.transform.position.z);
 
+                    enemySpeed -= 0.0001f;
+                }
+                else if (enemySpeed < enemySpeedReset && enemySpeed > 0)
+                {
+                    enemySpeed -= Time.deltaTime;
+                }
+                else
+                {
+                    enemySpeed = enemySpeedReset;
+                }
 
             }
         }
