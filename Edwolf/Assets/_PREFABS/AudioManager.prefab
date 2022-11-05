@@ -81,12 +81,6 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Attack
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
   - name: MoonShard
     clip: {fileID: 8300000, guid: 26aa8af4f6ff52940a7ce399ac365c7b, type: 3}
     volume: 0
@@ -105,13 +99,7 @@ MonoBehaviour:
     pitch: 0
     loop: 0
     source: {fileID: 0}
-  - name: Kill
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  - name: Footsteps
+  - name: Kill Goblin
     clip: {fileID: 0}
     volume: 0
     pitch: 0
@@ -119,6 +107,36 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Block
     clip: {fileID: 8300000, guid: ec7015f15700c6540a972cf4fd41afc6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Attack1
+    clip: {fileID: 8300000, guid: d2426e9a667553b498aff7dc24d8db64, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Attack2
+    clip: {fileID: 8300000, guid: 17e75b7275df5b04e905bd4bab810d0f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Footstep1
+    clip: {fileID: 8300000, guid: 059a2d4ef1e11d04eb0828ac54b367c0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Footstep2
+    clip: {fileID: 8300000, guid: 8a6c6dea22693a54a8da09b11808a894, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Footstep3
+    clip: {fileID: 8300000, guid: baf6ee59731f9af4abf77550d7bf92bb, type: 3}
     volume: 1
     pitch: 1
     loop: 0
