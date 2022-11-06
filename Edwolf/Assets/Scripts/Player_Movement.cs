@@ -48,13 +48,15 @@ public class Player_Movement : MonoBehaviour
         if (Input.GetKeyDown("left") && direction == "right")
         {
             direction = "left";
-            PunchBox.transform.position = new Vector3(PunchBox.transform.position.x - 1f, PunchBox.transform.position.y, PunchBox.transform.position.z);
+            //PunchBox.transform.position = new Vector3(PunchBox.transform.position.x - 1f, PunchBox.transform.position.y, PunchBox.transform.position.z);
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
 
         if (Input.GetKeyDown("right") && direction == "left")
         {
             direction = "right";
-            PunchBox.transform.position = new Vector3(PunchBox.transform.position.x + 1f, PunchBox.transform.position.y, PunchBox.transform.position.z);
+            //PunchBox.transform.position = new Vector3(PunchBox.transform.position.x + 1f, PunchBox.transform.position.y, PunchBox.transform.position.z);
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
 
         //Punch time
