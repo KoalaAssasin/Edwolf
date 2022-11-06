@@ -3,7 +3,12 @@ guid: bf7781c79b7e2d042851a47f183b4b91
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: defaultPolygonShader
+    second: {fileID: 2100000, guid: c547b892005b1b445b5f11f1e342b4c8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
