@@ -131,6 +131,7 @@ MonoBehaviour:
   healthPickup: {fileID: 5857572318744766705, guid: 7d9c631a3dcebc94980481d4dd51b527, type: 3}
   enemySpeed: 1.8
   playerScript: {fileID: 0}
+  target: {fileID: 0}
   playerCheck: {fileID: 8079482324580714748}
   playerMask:
     serializedVersion: 2
@@ -156,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bf7781c79b7e2d042851a47f183b4b91, type: 3}
       propertyPath: m_LocalScale.z
-      value: 21.389051
+      value: 14.553111
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bf7781c79b7e2d042851a47f183b4b91, type: 3}
       propertyPath: m_LocalPosition.x
@@ -168,7 +169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bf7781c79b7e2d042851a47f183b4b91, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.002
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bf7781c79b7e2d042851a47f183b4b91, type: 3}
       propertyPath: m_LocalRotation.w
