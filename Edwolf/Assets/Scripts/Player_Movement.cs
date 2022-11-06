@@ -24,6 +24,9 @@ public class Player_Movement : MonoBehaviour
     float IFrames = 0.3f;
     bool injured = false;
 
+    public AudioClip damagedSound;
+    public AudioClip deathSound;
+
     private void Start()
     {
         rigibody = GetComponent<Rigidbody>();
@@ -117,6 +120,16 @@ public class Player_Movement : MonoBehaviour
     bool GroundTouch()
     {
        return Physics.CheckSphere(groundCheck.position, 0.1f, ground);
+    }
+
+    public void HitEnemy()
+    {
+        GetComponent<AudioSource>().PlayOneShot(damagedSound);
+    }
+    
+    public void KillEnemy()
+    {
+        GetComponent<AudioSource>().PlayOneShot(deathSound);
     }
 
 }
