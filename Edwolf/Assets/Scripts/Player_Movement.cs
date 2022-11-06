@@ -26,6 +26,7 @@ public class Player_Movement : MonoBehaviour
 
     public AudioClip damagedSound;
     public AudioClip deathSound;
+    public AudioClip healthSound;
 
     private void Start()
     {
@@ -111,6 +112,7 @@ public class Player_Movement : MonoBehaviour
             if (health < 5)
             {
                 health += 1;
+                GetComponent<AudioSource>().PlayOneShot(healthSound);
             }
             Destroy(collision.gameObject);
         }
