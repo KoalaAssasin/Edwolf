@@ -31,7 +31,7 @@ public class Ranged_Enemy : MonoBehaviour
     void Update()
     {
         //Only moves when it sees the player
-        if (Physics.CheckSphere(playerCheck.position, 8.5f, playerMask) == true)
+        if (Physics.CheckSphere(playerCheck.position, 9f, playerMask) == true)
         {
             //To make them stunned during IFrames
             if (injured == false)

@@ -21,21 +21,22 @@ public class Camera_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (player.transform.position.x < 0)
+        if (playerScript.health > 0)
         {
-            cameraFollow = false;
-        }
-        else
-        {
-            cameraFollow = true;
-        }
+            if (player.transform.position.x < 0)
+            {
+                cameraFollow = false;
+            }
+            else
+            {
+                cameraFollow = true;
+            }
 
-        if (cameraFollow)
-        {
-            transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
+            if (cameraFollow)
+            {
+                transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
+            }
         }
-
     }
 
 }

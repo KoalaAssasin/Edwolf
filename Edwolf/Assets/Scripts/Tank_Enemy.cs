@@ -13,6 +13,8 @@ public class Tank_Enemy : MonoBehaviour
     float oldPosition;
     float IFrames = 0.5f;
     bool injured = false;
+    public float patrolTimer = 3;
+    string patrolDirection = "up";
 
     public Player_Movement playerScript;
 
@@ -27,7 +29,7 @@ public class Tank_Enemy : MonoBehaviour
 
     void Update()
     {
-        //Only moves when it sees the player
+        //Only moves to player when it sees the player
         if (Physics.CheckSphere(playerCheck.position, 7f, playerMask) == true)
         {
             //To make them stunned during IFrames
@@ -47,6 +49,30 @@ public class Tank_Enemy : MonoBehaviour
                 //Here the enemies will follow the waypoint.
                 transform.position = Vector3.MoveTowards(transform.position, wayPointPos, enemySpeed * Time.deltaTime);
 
+            }
+        }
+        //Patrols if not seeing the player
+        else
+        {
+            if (patrolDirection == "up")
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.01f);
+            }
+            else
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.01f);
+            }
+
+            patrolTimer -= Time.deltaTime;
+            if(patrolTimer < 0 && patrolDirection == "up")
+            {
+                patrolTimer = 3;
+                patrolDirection = "down";
+            }
+            if (patrolTimer < 0 && patrolDirection == "down")
+            {
+                patrolTimer = 3;
+                patrolDirection = "up";
             }
         }
 

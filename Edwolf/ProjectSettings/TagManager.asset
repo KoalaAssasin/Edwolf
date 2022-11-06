@@ -7,6 +7,8 @@ TagManager:
   - PlayerPunchBox
   - Enemy
   - Boundary
+  - Wall
+  - Floor
   layers:
   - Default
   - TransparentFX

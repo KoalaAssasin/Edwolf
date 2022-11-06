@@ -7,9 +7,9 @@ public class Enemy_Projectile : MonoBehaviour
 
     Vector3 travelDirection;
 
-    float bulletSpeed = 0.025f; // was previously 0.03f
+    float bulletSpeed = 0.02f; // was previously 0.03f
 
-    float bulletLifetime = 3.0f;
+    float bulletLifetime = 1.1f;
 
 
     // Start is called before the first frame update
@@ -31,7 +31,7 @@ public class Enemy_Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Floor")
         {
             Destroy(this.gameObject);
         }

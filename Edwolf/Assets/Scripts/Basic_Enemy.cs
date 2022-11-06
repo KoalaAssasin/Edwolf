@@ -27,7 +27,7 @@ public class Basic_Enemy : MonoBehaviour
 
     void Update()
     {
-        //Only moves when it sees the player
+        //Only moves to player when it sees the player
         if (Physics.CheckSphere(playerCheck.position, 7f, playerMask) == true)
         {
             //To make them stunned during IFrames
