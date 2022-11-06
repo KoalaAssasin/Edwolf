@@ -8,6 +8,9 @@ public class Ranged_Enemy : MonoBehaviour
     public GameObject bullet;
     GameObject prefab;
 
+    public GameObject healthPickup;
+    GameObject prefab2;
+
     //This will be the enemy's speed. Adjust as necessary. It's firing speed in this case.
     public float enemySpeed;
     public float enemySpeedReset = 6.0f;
@@ -88,6 +91,13 @@ public class Ranged_Enemy : MonoBehaviour
             if (health == 0)
             {
                 Destroy(this.gameObject);
+
+                float pickupChance = Random.Range(0.0f, 1.0f);
+
+                if (pickupChance > 0.9f)
+                {
+                    prefab2 = Instantiate(healthPickup, transform.position, transform.rotation);
+                }
             }
 
         }

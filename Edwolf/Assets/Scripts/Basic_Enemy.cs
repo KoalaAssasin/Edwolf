@@ -5,8 +5,10 @@ using UnityEngine;
 public class Basic_Enemy : MonoBehaviour
 {
     private GameObject wayPoint;
-    private GameObject bullet;
+    public GameObject healthPickup;
+    GameObject prefab; 
     private Vector3 wayPointPos;
+
     //This will be the enemy's speed. Adjust as necessary.
     public float enemySpeed = 1.8f;
     private int health = 3;
@@ -74,6 +76,12 @@ public class Basic_Enemy : MonoBehaviour
             if (health == 0)
             {
                 Destroy(this.gameObject);
+                float pickupChance = Random.Range(0.0f, 1.0f);
+
+                if(pickupChance > 0.9f)
+                {
+                    prefab = Instantiate(healthPickup, transform.position, transform.rotation);
+                }
             }
 
         }

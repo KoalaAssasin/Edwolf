@@ -6,6 +6,8 @@ public class Tank_Enemy : MonoBehaviour
 {
     private GameObject wayPoint;
     private GameObject bullet;
+    public GameObject healthPickup;
+    GameObject prefab;
     private Vector3 wayPointPos;
     //This will be the enemy's speed. Adjust as necessary.
     public float enemySpeed = 1.1f;
@@ -100,6 +102,13 @@ public class Tank_Enemy : MonoBehaviour
             if (health == 0)
             {
                 Destroy(this.gameObject);
+
+                float pickupChance = Random.Range(0.0f, 1.0f);
+
+                if (pickupChance > 0.75f)
+                {
+                    prefab = Instantiate(healthPickup, transform.position, transform.rotation);
+                }
             }
 
         }

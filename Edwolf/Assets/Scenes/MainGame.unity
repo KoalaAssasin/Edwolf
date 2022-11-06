@@ -7423,6 +7423,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8079482324580714751, guid: af56b9dd9892ac541bb210204b7f5c91, type: 3}
+      propertyPath: healthPickup
+      value: 
+      objectReference: {fileID: 5857572318744766705, guid: 7d9c631a3dcebc94980481d4dd51b527, type: 3}
+    - target: {fileID: 8079482324580714751, guid: af56b9dd9892ac541bb210204b7f5c91, type: 3}
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 1048486928}

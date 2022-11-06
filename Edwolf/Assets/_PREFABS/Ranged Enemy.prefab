@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 2763321427301803632, guid: b8dcee7ab4bd5c846909002e54733935, type: 3}
+  healthPickup: {fileID: 5857572318744766705, guid: 7d9c631a3dcebc94980481d4dd51b527, type: 3}
   enemySpeed: 0
   enemySpeedReset: 4.2
   playerScript: {fileID: 0}

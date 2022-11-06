@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a9253e130a9c44db998b482b10d3f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthPickup: {fileID: 5857572318744766705, guid: 7d9c631a3dcebc94980481d4dd51b527, type: 3}
   enemySpeed: 1.8
   playerScript: {fileID: 0}
   playerCheck: {fileID: 8079482324580714748}

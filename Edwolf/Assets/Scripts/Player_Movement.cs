@@ -101,6 +101,14 @@ public class Player_Movement : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+        if (collision.gameObject.tag == "Health Pickup")
+        {
+            if (health < 5)
+            {
+                health += 1;
+            }
+            Destroy(collision.gameObject);
+        }
       
     }
 

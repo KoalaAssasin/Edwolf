@@ -9,6 +9,7 @@ TagManager:
   - Boundary
   - Wall
   - Floor
+  - Health Pickup
   layers:
   - Default
   - TransparentFX
