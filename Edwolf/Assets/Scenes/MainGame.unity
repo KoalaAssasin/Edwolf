@@ -8703,6 +8703,8 @@ MonoBehaviour:
   PunchBox: {fileID: 0}
   punchActive: 0
   health: 3
+  damagedSound: {fileID: 0}
+  deathSound: {fileID: 0}
 --- !u!114 &1013762069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9092,6 +9094,7 @@ GameObject:
   - component: {fileID: 1048486930}
   - component: {fileID: 1048486933}
   - component: {fileID: 1048486932}
+  - component: {fileID: 1048486934}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -9184,6 +9187,8 @@ MonoBehaviour:
   PunchBox: {fileID: 30242704}
   punchActive: 0
   health: 5
+  damagedSound: {fileID: 8300000, guid: d2426e9a667553b498aff7dc24d8db64, type: 3}
+  deathSound: {fileID: 8300000, guid: 17e75b7275df5b04e905bd4bab810d0f, type: 3}
 --- !u!114 &1048486929
 MonoBehaviour:
   m_ObjectHideFlags: 0

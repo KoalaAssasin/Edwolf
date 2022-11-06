@@ -72,13 +72,15 @@ public class Basic_Enemy : MonoBehaviour
             {
                 health -= 1;
                 injured = true;
+                playerScript.HitEnemy();
             }
             if (health == 0)
             {
+                playerScript.KillEnemy();
                 Destroy(this.gameObject);
                 float pickupChance = Random.Range(0.0f, 1.0f);
 
-                if(pickupChance > 0.9f)
+                if (pickupChance > 0.9f)
                 {
                     prefab = Instantiate(healthPickup, transform.position, transform.rotation);
                 }

@@ -98,9 +98,11 @@ public class Tank_Enemy : MonoBehaviour
             {
                 health -= 1;
                 injured = true;
+                playerScript.HitEnemy();
             }
             if (health == 0)
             {
+                playerScript.KillEnemy();
                 Destroy(this.gameObject);
 
                 float pickupChance = Random.Range(0.0f, 1.0f);
