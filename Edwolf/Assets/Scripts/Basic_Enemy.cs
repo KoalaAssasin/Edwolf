@@ -21,6 +21,9 @@ public class Basic_Enemy : MonoBehaviour
     [SerializeField] Transform playerCheck;
     [SerializeField] LayerMask playerMask;
 
+    public AudioClip damagedSound;
+    public AudioClip deathSound;
+
     void Start()
     {
         //When spawned, enemies will find the gameobject called wayPoint.
@@ -72,13 +75,16 @@ public class Basic_Enemy : MonoBehaviour
             {
                 health -= 1;
                 injured = true;
+                GetComponent<AudioSource>().PlayOneShot(damagedSound);
             }
             if (health == 0)
             {
+
+                GetComponent<AudioSource>().PlayOneShot(deathSound);
                 Destroy(this.gameObject);
                 float pickupChance = Random.Range(0.0f, 1.0f);
 
-                if(pickupChance > 0.9f)
+                if (pickupChance > 0.9f)
                 {
                     prefab = Instantiate(healthPickup, transform.position, transform.rotation);
                 }
