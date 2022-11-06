@@ -14,11 +14,13 @@ public class Ranged_Enemy : MonoBehaviour
     //This will be the enemy's speed. Adjust as necessary. It's firing speed in this case.
     public float enemySpeed;
     public float enemySpeedReset = 6.0f;
+    public float animCounter = 0.3f;
     private int health = 2;
     float IFrames = 0.5f;
     bool injured = false;
 
     public Player_Movement playerScript;
+    public Animator animator;
 
     [SerializeField] Transform playerCheck;
     [SerializeField] LayerMask playerMask;
@@ -41,27 +43,36 @@ public class Ranged_Enemy : MonoBehaviour
             {
                 if (wayPoint.transform.position.x < transform.position.x) //Sprite rotator
                 {
-                    transform.localRotation = Quaternion.Euler(0, 180, 0);
+                    transform.localRotation = Quaternion.Euler(0, -90, 0);
                 }
                 else
                 {
-                    transform.localRotation = Quaternion.Euler(0, 0, 0);
+                    transform.localRotation = Quaternion.Euler(0, 120, 0);
                 }
 
                 if (enemySpeed == enemySpeedReset)
                 {
                     prefab = Instantiate(bullet, transform.position, transform.rotation);
                     prefab.transform.position = new Vector3(prefab.transform.position.x, prefab.transform.position.y + 0.4f, prefab.transform.position.z);
+                    animator.SetBool("isAttacking", true);
 
                     enemySpeed -= 0.0001f;
                 }
                 else if (enemySpeed < enemySpeedReset && enemySpeed > 0)
                 {
                     enemySpeed -= Time.deltaTime;
+                    animCounter -= Time.deltaTime;
+                    
                 }
                 else
                 {
                     enemySpeed = enemySpeedReset;
+                }
+
+                if (animCounter < 0)
+                {
+                    animator.SetBool("isAttacking", false);
+                    animCounter = 0.3f;
                 }
 
             }

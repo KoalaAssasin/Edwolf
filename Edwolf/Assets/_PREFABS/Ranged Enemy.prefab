@@ -132,7 +132,9 @@ MonoBehaviour:
   healthPickup: {fileID: 5857572318744766705, guid: 7d9c631a3dcebc94980481d4dd51b527, type: 3}
   enemySpeed: 0
   enemySpeedReset: 4.2
+  animCounter: 1
   playerScript: {fileID: 0}
+  animator: {fileID: 648641734645677165}
   playerCheck: {fileID: 6416058656581329311}
   playerMask:
     serializedVersion: 2
@@ -225,7 +227,7 @@ Animator:
   m_GameObject: {fileID: 8406213957784986364}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2aaffc11b10e489498869e421af0f2bb, type: 2}
+  m_Controller: {fileID: 9100000, guid: f471d35ccfb85004a8073c56a1fa0145, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

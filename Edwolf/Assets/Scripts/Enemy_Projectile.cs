@@ -7,7 +7,7 @@ public class Enemy_Projectile : MonoBehaviour
 
     Vector3 travelDirection;
 
-    float bulletSpeed = 0.02f; // was previously 0.03f
+    float bulletSpeed = 0.03f; // was previously 0.03f
 
     float bulletLifetime = 1.1f;
 
