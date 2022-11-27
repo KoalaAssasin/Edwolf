@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class Player_Movement : MonoBehaviour
@@ -21,12 +22,36 @@ public class Player_Movement : MonoBehaviour
     public int health = 3;
     string direction = "right";
 
+    float horizontalInput = 0;
+    float verticalInput = 0;
+
     float IFrames = 0.3f;
     bool injured = false;
 
     public AudioClip damagedSound;
     public AudioClip deathSound;
     public AudioClip healthSound;
+
+    PlayerControls controls;
+
+    private void Awake()
+    {
+        controls = new PlayerControls();
+
+        controls.Gameplay.Jump.performed += ctx => Jump();
+
+        controls.Gameplay.Attack1.performed += ctx => Attack1();
+
+        controls.Gameplay.MoveLeft.performed += ctx => MoveLeft();
+        controls.Gameplay.MoveRight.performed += ctx => MoveRight();
+        controls.Gameplay.MoveLeft.canceled += ctx => StopMoveHorizontal();
+        controls.Gameplay.MoveRight.canceled += ctx => StopMoveHorizontal();
+
+        controls.Gameplay.MoveUp.performed += ctx => MoveUp();
+        controls.Gameplay.MoveDown.performed += ctx => MoveDown();
+        controls.Gameplay.MoveUp.canceled += ctx => StopMoveVertical();
+        controls.Gameplay.MoveDown.canceled += ctx => StopMoveVertical();
+    }
 
     private void Start()
     {
@@ -35,36 +60,12 @@ public class Player_Movement : MonoBehaviour
 
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
 
+        // Movin
         rigibody.velocity = new Vector3(horizontalInput * MoveSpeedHorizontal, rigibody.velocity.y, verticalInput * MoveSpeedVertical);
 
-        if (Input.GetKeyDown("x") && GroundTouch() == true)
-        {
-            rigibody.velocity = new Vector3(rigibody.velocity.x, JumpVelocity, rigibody.velocity.z);
-        }
-
-        if (Input.GetKeyDown("left") && direction == "right")
-        {
-            direction = "left";
-            //PunchBox.transform.position = new Vector3(PunchBox.transform.position.x - 1f, PunchBox.transform.position.y, PunchBox.transform.position.z);
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
-        }
-
-        if (Input.GetKeyDown("right") && direction == "left")
-        {
-            direction = "right";
-            //PunchBox.transform.position = new Vector3(PunchBox.transform.position.x + 1f, PunchBox.transform.position.y, PunchBox.transform.position.z);
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
-        }
-
         //Punch time
-        if (Input.GetKeyDown("z") && punchCooldown == false)
-        {
-            punchActive = true;
-            punchCooldown = true;
-        }
+
         //Countdown the punch active time and cooldown
         if (punchActiveTime > -2f && punchCooldown == true)
         {
@@ -134,6 +135,72 @@ public class Player_Movement : MonoBehaviour
     public void KillEnemy()
     {
         GetComponent<AudioSource>().PlayOneShot(deathSound);
+    }
+
+    public void Jump()
+    {
+        if (GroundTouch() == true)
+        {
+            rigibody.velocity = new Vector3(rigibody.velocity.x, JumpVelocity, rigibody.velocity.z);
+        }
+    }
+
+    public void Attack1()
+    {
+        if (punchCooldown == false)
+        {
+            punchActive = true;
+            punchCooldown = true;
+        }
+    }
+
+    public void MoveLeft()
+    {
+        horizontalInput = -1;
+
+        if (direction == "right")
+        {
+            direction = "left";
+            //PunchBox.transform.position = new Vector3(PunchBox.transform.position.x - 1f, PunchBox.transform.position.y, PunchBox.transform.position.z);
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+    }
+    public void MoveRight()
+    {
+        horizontalInput = 1;
+
+        if (direction == "left")
+        {
+            direction = "right";
+            //PunchBox.transform.position = new Vector3(PunchBox.transform.position.x + 1f, PunchBox.transform.position.y, PunchBox.transform.position.z);
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+    }
+    public void StopMoveHorizontal()
+    {
+        horizontalInput = 0;
+    }
+
+    public void MoveDown()
+    {
+        verticalInput = -1;
+    }
+    public void MoveUp()
+    {
+        verticalInput = 1;
+    }
+    public void StopMoveVertical()
+    {
+        verticalInput = 0;
+    }
+
+    void OnEnable()
+    {
+        controls.Gameplay.Enable();
+    }
+    void OnDisable()
+    {
+        controls.Gameplay.Disable();
     }
 
 }
