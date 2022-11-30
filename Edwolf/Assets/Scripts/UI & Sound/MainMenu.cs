@@ -24,7 +24,11 @@ public class MainMenu : MonoBehaviour
     public void IntroPlay()
     {
         SceneManager.LoadScene("IntroScene");
-    }    
+    }
+    public void ControlsPlay()
+    {
+        SceneManager.LoadScene("ControlsScene");
+    }
     public void MainMenuFunc()
     {
         //Sound
